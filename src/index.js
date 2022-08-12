@@ -17,8 +17,8 @@ root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<Main />} />
-      <Route path="waystone" element={<WaystonePage />} />
-      <Route path="fractalz" element={<FracalzPage />} />
+      <Route path="/waystone" element={<WaystonePage />} />
+      <Route path="/fractalz" element={<FracalzPage />} />
     </Routes>
   </BrowserRouter>
 );
