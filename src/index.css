@@ -1,13 +1,191 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Fonts  */
+@font-face {
+  font-family: redress;
+  src: url('./fonts/Redressed-Regular.ttf');
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: comic-runes;
+  src: url('./fonts/ComicRunes.otf');
+}
+
+@font-face {
+  font-family: biondi-sans;
+  src: url('./fonts/Biondi-Sans-Light.ttf');
+}
+
+/* General Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  font-weight: normal;
+}
+
+body {
+  margin: 0;
+  font-size: 16px;
+  color: white;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: biondi-sans, sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  height: 100%;
+  display: inline-block;
+}
+
+/* Header Navigation */
+
+header {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+}
+
+.nav-items {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.nav-item-logo,
+.nav-item-connect {
+  display: flex;
+}
+
+.nav-item-logo {
+  justify-content: flex-start;
+  padding-left: 20px;
+  transition: opacity 300ms linear;
+}
+
+.nav-item-logo:hover {
+  opacity: 0.45;
+}
+
+.nav-item-connect {
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+  transition: opacity 0.3s linear;
+}
+
+.nav-item-connect:hover {
+  opacity: 0.45;
+}
+
+.logo,
+.connect-link {
+  width: 250px;
+}
+
+/* Video Background*/
+.background-wrapper {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.background-wrapper video {
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Footer */
+footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.journey {
+  width: 250px;
+  transition: opacity 300ms linear;
+}
+
+.journey:hover {
+  width: 250px;
+  opacity: 0.45;
+}
+
+.social-icons {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  height: 50px;
+  padding-right: 50px;
+}
+
+.social-icon {
+  padding: 0 5px;
+  transition: opacity 300ms linear;
+}
+
+.social-icon:hover {
+  opacity: 0.45;
+}
+
+.social-icon img {
+  width: 50px;
+}
+
+/* Waystone page */
+
+.waystone-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+.extract-shard-text,
+.observatorium-text {
+  text-align: right;
+  padding-right: 30px;
+}
+
+.extract-shard-text {
+  margin-top: 200px;
+}
+
+.observatorium-text {
+  padding-bottom: 30px;
+}
+
+.body-text {
+  margin-bottom: 20px;
+  max-width: 650px;
+  margin-left: auto;
+  font-size: 25px;
+}
+
+.extract-shard-link,
+.waystone-link {
+  width: 400px;
+  margin-right: -30px;
 }
