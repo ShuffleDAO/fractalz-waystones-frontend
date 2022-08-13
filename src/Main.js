@@ -11,7 +11,7 @@ export default function Main() {
       </header>
       <main>
         <section>
-          <div class="background-wrapper">
+          <div className="background-wrapper">
             <VideoBackground videoSrc={"/assets/videos/homepage-final.mp4"} />
           </div>
         </section>

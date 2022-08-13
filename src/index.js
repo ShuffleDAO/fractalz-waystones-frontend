@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import Main from "./Main";
 import WaystonePage from "./routes/waystone-page";
-import FracalzPage from "./routes/fracalz-page";
+import FractalzPage from "./routes/fractalz-page";
 import './index.css'
 
 const root = ReactDOM.createRoot(
@@ -18,7 +18,7 @@ root.render(
     <Routes>
       <Route path="/" element={<Main />} />
       <Route path="/waystone" element={<WaystonePage />} />
-      <Route path="/fractalz" element={<FracalzPage />} />
+      <Route path="/fractalz" element={<FractalzPage />} />
     </Routes>
   </BrowserRouter>
 );
