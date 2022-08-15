@@ -26,7 +26,7 @@ export default function WaystonePage() {
               </div>
             </div>
             <div className="observatorium-text">
-              <p className="body-text">Once you have obtained a shard. Enter the observatorium to explore the nature of this mysterious crystal further...</p>
+              <p className="body-text">Once you have obtained a Shard, enter the Observatorium to explore the nature of this mysterious crystal further...</p>
               <div className="link-wrapper">
                 <Link to="/fractalz" className="waystone-link">
                   <img alt="Link to extract shard" src="/assets/buttons/observatorium.png" />
