@@ -47,7 +47,7 @@ li {
 /* Header Navigation */
 
 header {
-  position: fixed;
+  position: absolute;
   top: 0;
   z-index: 1;
   width: 100%;
@@ -62,6 +62,13 @@ header {
   justify-content: space-between;
 }
 
+@media screen and (max-width: 990px) {
+  .nav-items {
+    justify-content: center;
+    padding-top: 20px;
+  }
+}
+
 .nav-item-logo,
 .nav-item-connect {
   display: flex;
@@ -69,11 +76,27 @@ header {
 
 .nav-item-logo {
   justify-content: flex-start;
-  padding-left: 20px;
+  padding: 0 20px;
+  align-items: center;
+}
+
+@media screen and (max-width: 990px) {
+  .nav-item-logo {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .nav-item-logo {
+    justify-content: center;
+  }
+}
+
+.nav-item-logo a {
   transition: opacity 300ms linear;
 }
 
-.nav-item-logo:hover {
+.nav-item-logo a:hover {
   opacity: 0.45;
 }
 
@@ -93,12 +116,42 @@ header {
   width: 250px;
 }
 
+@media screen and (max-width: 990px) {
+  .logo,
+  .connect-link {
+    width: 200px;
+  }
+}
+
+.audio-button {
+  border: none;
+  background: none;
+  background-image: url('./images/Sound.png');
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  transition: opacity 300ms ease-out;
+}
+
+.audio-button.muted {
+  background-image: url('./images/Mute.png');
+}
+
+.audio-button:hover {
+  opacity: 0.3;
+}
+
 /* Video Background*/
+
 .background-wrapper {
-  width: 100%;
   height: 100vh;
-  overflow: hidden;
-  position: relative;
+}
+
+@media screen and (max-width: 990px) {
+  .background-wrapper {
+    height: 100%;
+    min-height: 100vh;
+  }
 }
 
 .background-wrapper video {
@@ -112,14 +165,50 @@ header {
   transform: translate(-50%, -50%);
 }
 
+.video-wrapper {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  position: absolute;
+}
+
+@media screen and (max-width: 990px) {
+  .video-wrapper {
+    height:100%;
+  }
+}
+
+.video-wrapper:after {
+  content: '';
+  position: absolute;
+  background-color: rgba(0,0,0,0.3);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
 /* Footer */
 footer {
   width: 100%;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   z-index: 1;
   display: flex;
   justify-content: space-between;
+}
+
+footer a {
+  display: flex;
+}
+
+@media screen and (max-width: 990px) { 
+  footer {
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+    justify-content: center;
+  }
 }
 
 .journey {
@@ -140,6 +229,13 @@ footer {
   padding-right: 50px;
 }
 
+@media screen and (max-width: 990px) {
+  .social-icons {
+    padding-right: 0;
+    justify-content: center;
+  }
+}
+
 .social-icon {
   padding: 0 5px;
   transition: opacity 300ms linear;
@@ -153,15 +249,37 @@ footer {
   width: 50px;
 }
 
+@media screen and (max-width: 990px) {
+  .waystone-link-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+}
+
 /* Waystone page */
 
 .waystone-content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: flex-end;
   flex-wrap: wrap;
-  height: 100%;
+  height: 100vh;
+}
+
+@media screen and (max-width: 990px) {
+  .waystone-content {
+    height: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+  }
+}
+
+@media  screen and (max-width: 990px) {
+  .waystone-content {
+    height: auto;
+  }
 }
 
 .extract-shard-text,
@@ -171,13 +289,31 @@ footer {
   padding-right: 60px;
 }
 
-.extract-shard-text,
-.activate-waystone-text {
-  margin-top: 200px;
+.observatorium-text {
+  margin-top: 100px;
 }
 
-.observatorium-text {
-  padding-bottom: 30px;
+@media screen and (max-height: 801px) {
+  .observatorium-text {
+    margin-top: 30px;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .extract-shard-text,
+  .observatorium-text,
+  .activate-waystone-text {
+    padding-right: 20px;
+    padding-left: 20px;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.extract-shard-text,
+.activate-waystone-text {
+  margin-top: 150px;
 }
 
 .body-text {
@@ -190,28 +326,65 @@ footer {
 .extract-shard-text .body-text:first-child {
   font-size: 24px;
   margin-bottom: 25px;
-  max-width: 540px;
+  max-width: 525px;
+}
+
+@media screen and (max-width: 990px) {
+  .extract-shard-text .body-text:first-child {
+    font-size: 21px;
+  }
 }
 
 .extract-shard-text .body-text:nth-child(2) {
-  max-width: 600px;
+  max-width: 530px;
 }
 
 .extract-shard-text .body-text:nth-child(3) {
-  max-width: 500px;
+  max-width: 440px;
+}
+
+@media screen and (max-width: 990px) {
+  .body-text {
+    font-size: 16px;
+    line-height: 23px;
+    text-align: center;
+  }
+
+  .extract-shard-text .body-text:first-child,
+  .extract-shard-text .body-text:nth-child(2),
+  .extract-shard-text .body-text:nth-child(3) {
+    max-width: 100%;
+  }
 }
 
 .extract-shard-link {
   margin-right: -15px;
 }
 
+@media screen and (max-width: 990px) {
+  .extract-shard-link {
+    margin-right: 0;
+  }
+}
+
 .extract-shard-link img,
 .activate-waystone-link img {
-  width: 400px;
+  width: 300px;
 }
 
 .waystone-link img {
   width: 375px;
+}
+
+@media screen and (max-width: 990px) {
+  .extract-shard-link img,
+  .activate-waystone-link img {
+    width: 300px;
+  }
+  
+  .waystone-link img {
+    width: 300px;
+  }
 }
 
 .waystone-link {
@@ -222,17 +395,46 @@ footer {
   margin-right: -45px;
 }
 
+@media screen and (max-width: 990px) {
+  .waystone-link,
+  .activate-waystone-link {
+    margin-right: 0;
+  }
+}
+
 .extract-link-text,
 .activate-waystone-link-text {
   font-family: 'redress', cursive;
   width: 100%;
   text-align: right;
-  font-size: 25px;
+  font-size: 21px;
   padding-right: 40px;
+}
+
+@media screen and (max-width: 990px) {
+  .extract-link-text,
+  .activate-waystone-link-text {
+    font-size: 22px;
+  }
+
+  .extract-link-text {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 0;
+  }
 }
 
 .observatorium-text .body-text:first-child {
   max-width: 485px;
+  font-size: 21px;
+}
+
+@media screen and (max-width: 990px){
+  .observatorium-text .body-text:first-child {
+    max-width: 100%;
+    font-size: 18px;
+  }
 }
 
 .waystone-link-text,
@@ -240,9 +442,22 @@ footer {
   font-size: 17px;
 }
 
+@media screen and (max-width: 990px) {
+  .activate-waystone-link-text {
+    width: 100%;
+    text-align: center;
+    padding: 0;
+  }
+}
+
 .waystone-link-text {
   font-size: 20px;
-  padding-right: 45px;
+}
+
+@media screen and (max-width:990px) {
+  .waystone-link-text {
+    padding-bottom: 40px;
+  }
 }
 
 .waystone-link-text a {
@@ -258,8 +473,21 @@ footer {
   width: 100%;
 }
 
+@media screen and (max-width: 990px) {
+  .link-wrapper {
+    justify-content: center;
+  }
+}
+
 .activate-waystone-text .body-text {
   font-size: 18px;
   line-height: 34px;
   max-width: 570px;
+}
+
+@media screen and (max-width: 990px) {
+  .activate-waystone-text .body-text {
+    font-size: 16px;
+    line-height: 32px;
+  }
 }

@@ -7,7 +7,7 @@ export default function Main() {
   return (
     <>
       <header>
-        <Navigation />
+        <Navigation audioFile={"/assets/audio/at-the-abyss.wav"} />
       </header>
       <main>
         <section>

@@ -6,7 +6,7 @@ export default function FractalzPage() {
   return (
     <>
       <header>
-        <Navigation />
+        <Navigation audioFile={"/assets/audio/at-the-abyss-bass.mp3"} />
       </header>
       <main>
         <section>

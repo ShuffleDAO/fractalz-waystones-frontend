@@ -7,7 +7,7 @@ export default function WaystonePage() {
   return (
     <>
       <header>
-        <Navigation />
+        <Navigation audioFile={"/assets/audio/at-the-abyss.wav"} />
       </header>
       <main>
         <section>
