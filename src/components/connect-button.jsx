@@ -10,9 +10,13 @@ export default function ConnectButton(props) {
   })
 
   console.log(isConnected)
+  const connectWallet = () => {
+    console.log('connect to me');
+    connect();
+  }
 
   return (
-    <button className="connect-btn" onClick={() => connect()}>
+    <button className="connect-btn" onClick={() => connectWallet()}>
       <img className="connect-link" alt="Link to ETC Wallet" src="/assets/buttons/connect.png" />
     </button>
   )
