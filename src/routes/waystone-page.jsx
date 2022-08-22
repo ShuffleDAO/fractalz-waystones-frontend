@@ -1,13 +1,23 @@
 import React, { useState } from "react";
+import { useContractRead } from 'wagmi';
 import Navigation from '../components/navigation';
 import VideoBackground from "../components/video-background";
 import { Link } from "react-router-dom";
 import ExtractShardButton from "../components/extract-shard-button";
 import Model from "../components/model";
+import WaystoneContract from '../contracts/WaystoneDevContract.json';
 
 export default function WaystonePage() {
   const [isModelOpen, setIsModelOpen] = useState(false);
   const launched = false;
+  const { status, data, error } = useContractRead({
+    addressOrName: '0x163f5496150e9539FB608cBE0130DD1778EdeC20',
+    contractInterface: WaystoneContract,
+    functionName: 'minted',
+    watch: true,
+  });
+
+  const totalShards = data && 1200 - parseInt(data._hex, 16);
 
   return (
     <>
@@ -26,7 +36,9 @@ export default function WaystonePage() {
               <p className="body-text">Will you extract what lies within, Legion? Will you dare to step into the unknown?</p>
               <div className={`link-wrapper`}>
                   <ExtractShardButton />
-                  <p className="extract-link-text">1 per wallet | 1,200 total</p>
+                  {status !== 'loading' && <p className="extract-link-text">{
+                    error || !data ? '1 per wallet | 1,200 total' : `1 per wallet | ${totalShards.toLocaleString()} of 1,200 minted`}
+                  </p>}
               </div>
             </div>
             <div className="observatorium-text">
