@@ -9,13 +9,13 @@ export default function ConnectButton(props) {
     connector: new InjectedConnector(),
   })
 
-  const connectWallet = async () => {
-    await connect();
-    await getMerkleProofs(address);
+  const connectWallet = () => {
+    connect();
+    // await getMerkleProofs(address);
   }
 
   return (
-    <button className="connect-btn" onClick={async () => await connectWallet()}>
+    <button className="connect-btn" onClick={() => connectWallet()}>
       <img className="connect-link" alt="Link to ETC Wallet" src="/assets/buttons/connect.png" />
     </button>
   )
