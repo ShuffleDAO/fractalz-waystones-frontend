@@ -1,5 +1,5 @@
-import React, { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import ConnectButton from './connect-button';
 
 export default function Navigation(props) {
@@ -16,22 +16,29 @@ export default function Navigation(props) {
       audioPlayer.current.pause();
       setAudioMuted(true);
     }
-  }
+  };
 
   return (
     <nav>
       <ul className="nav-items">
         <li className="nav-item-logo">
           <Link to="/">
-            <img className="logo" alt="Fracalz Logo" src="/assets/fractalz-logo.png" />
+            <img
+              className="logo"
+              alt="Fracalz Logo"
+              src="/assets/fractalz-logo.png"
+            />
           </Link>
         </li>
         <li className="nav-item-connect">
           <ConnectButton />
-          <button onClick={startAndStopAudio} className={`audio-button ${audioMuted ? 'muted': ''}`}></button>
+          <button
+            onClick={startAndStopAudio}
+            className={`audio-button ${audioMuted ? 'muted' : ''}`}
+          ></button>
         </li>
       </ul>
-      <audio ref={audioPlayer} src={audioFile}></audio>
+      <audio loop ref={audioPlayer} src={audioFile}></audio>
     </nav>
   );
 }

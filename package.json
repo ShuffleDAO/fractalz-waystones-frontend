@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@rainbow-me/rainbowkit": "^0.5.0",
     "axios": "^0.27.2",
     "ethers": "^5.6.9",
+    "lodash.merge": "^4.6.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-modal": "^3.15.1",
