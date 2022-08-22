@@ -54,7 +54,7 @@ header {
 }
 
 .nav-items {
-  padding: 0;
+  padding: 10px 40px 0;
   margin: 0;
   display: flex;
   flex-wrap: wrap;
@@ -65,7 +65,7 @@ header {
 @media screen and (max-width: 990px) {
   .nav-items {
     justify-content: center;
-    padding-top: 20px;
+    padding-top: 20 0 0 0;
   }
 }
 
@@ -74,7 +74,14 @@ header {
   display: flex;
 }
 
-.nav-item-logo {
+.connect-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.nav-item-logo,
+.nav-item-connect {
   justify-content: flex-start;
   padding: 0 20px;
   align-items: center;
@@ -111,14 +118,16 @@ header {
   opacity: 0.45;
 }
 
-.logo,
-.connect-link {
+.logo {
   width: 250px;
 }
 
+.connect-link {
+  width: 150px;
+}
+
 @media screen and (max-width: 990px) {
-  .logo,
-  .connect-link {
+  .logo {
     width: 200px;
   }
 }
@@ -127,8 +136,8 @@ header {
   border: none;
   background: none;
   background-image: url('./images/Sound.png');
-  width: 40px;
-  height: 40px;
+  width: 25px;
+  height: 25px;
   background-size: contain;
   transition: opacity 300ms ease-out;
 }
@@ -197,6 +206,7 @@ footer {
   z-index: 1;
   display: flex;
   justify-content: space-between;
+  padding: 30px;
 }
 
 footer a {
@@ -239,6 +249,13 @@ footer a {
 .social-icon {
   padding: 0 5px;
   transition: opacity 300ms linear;
+  margin-right: 5px;
+}
+
+@media screen and (max-width: 990px) {
+  .social-icon {
+    margin-right: 0;
+  }
 }
 
 .social-icon:hover {
@@ -246,7 +263,7 @@ footer a {
 }
 
 .social-icon img {
-  width: 50px;
+  width: 40px;
 }
 
 @media screen and (max-width: 990px) {
@@ -359,6 +376,14 @@ footer a {
 
 .extract-shard-link {
   margin-right: -15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 300ms linear;
+}
+
+.extract-shard-link:hover {
+  opacity: 0.3;
 }
 
 @media screen and (max-width: 990px) {
@@ -389,6 +414,14 @@ footer a {
 
 .waystone-link {
   margin-right: -23px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 300ms linear;
+}
+
+.waystone-link:hover {
+  opacity: 0.3;
 }
 
 .activate-waystone-link {
@@ -490,4 +523,39 @@ footer a {
     font-size: 16px;
     line-height: 32px;
   }
+}
+
+/* Modal  */
+.ReactModal__Overlay.ReactModal__Overlay--after-open {
+  background-color: rgba(0,0,0,0.55) !important;
+}
+
+.ReactModal__Content {
+  background: url('./images/Modal.png') !important;
+  background-position: center !important;
+  background-size: cover !important;
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.model-text {
+  padding: 32px 20px;
+  line-height: 18px;
+  text-align: center;
+}
+
+.close-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 20px;
+}
+
+.close-btn {
+  background: url('./images/X.png');
+  height: 50px;
+  width: 50px;
+  border: none;
+  background-position: center;
+  background-size: contain;
+  cursor: pointer;
 }

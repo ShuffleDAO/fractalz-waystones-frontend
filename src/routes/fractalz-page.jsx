@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Navigation from '../components/navigation';
 import VideoBackground from "../components/video-background";
 
 export default function FractalzPage() {
+  const [isAllowed, setIsAllowed] = useState(false);
+
   return (
     <>
       <header>
-        <Navigation audioFile={"/assets/audio/at-the-abyss-bass.mp3"} />
+        <Navigation audioFile={"/assets/audio/at-the-abyss.mp3"} />
       </header>
       <main>
         <section>
@@ -17,10 +19,10 @@ export default function FractalzPage() {
                 <p className="body-text">The Emergence appears to have begun…</p>
                 <p className="body-text">Legends tell of ancient stones, known as Waystones, that were used to call across the Cosmos to Fractalz.</p>
                 <p className="body-text">Could this Shard you possess be the key to hailing them through the Void?</p>
-                <div className="link-wrapper">
-                  <a className="activate-waystone-link" href="#">
+                <div className={`link-wrapper ${!isAllowed ? 'disabled': ""}`}>
+                  <button disabled={!isAllowed} className="activate-waystone-link">
                     <img alt="Link to extract shard" src="/assets/buttons/waystone.png" />
-                  </a>
+                  </button>
                   <p className="activate-waystone-link-text">5 per wallet | X / ????</p>
                 </div>
               </div>

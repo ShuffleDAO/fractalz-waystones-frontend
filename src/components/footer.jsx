@@ -4,12 +4,7 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <footer>
-      <div className="waystone-link-wrapper">
-          <Link to="/waystone">
-            <img className="journey" alt="Link to Waystones Mint Page" src="/assets/buttons/journey.png" />
-          </Link>
-      </div>
-      <ul className="social-icons">
+       <ul className="social-icons">
         <li className="social-icon">
           <a href="https://twitter.com/fractalzNFT" target="_blank" rel="noreferrer">
             <img alt="Link to twitter page" src="/assets/icons/Twitter.png" />
@@ -31,6 +26,11 @@ export default function Footer() {
           </a>
         </li>
       </ul>
+      <div className="waystone-link-wrapper">
+          <Link to="/waystone">
+            <img className="journey" alt="Link to Waystones Mint Page" src="/assets/buttons/journey.png" />
+          </Link>
+      </div>
     </footer>
   )
 }
