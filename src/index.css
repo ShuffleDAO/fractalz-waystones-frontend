@@ -184,14 +184,14 @@ header {
 
 @media screen and (max-width: 990px) {
   .video-wrapper {
-    height:100%;
+    height: 100%;
   }
 }
 
 .video-wrapper:after {
   content: '';
   position: absolute;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0, 0, 0, 0.3);
   top: 0;
   bottom: 0;
   left: 0;
@@ -213,7 +213,7 @@ footer a {
   display: flex;
 }
 
-@media screen and (max-width: 990px) { 
+@media screen and (max-width: 990px) {
   footer {
     flex-wrap: wrap;
     padding-bottom: 20px;
@@ -293,7 +293,7 @@ footer a {
   }
 }
 
-@media  screen and (max-width: 990px) {
+@media screen and (max-width: 990px) {
   .waystone-content {
     height: auto;
   }
@@ -406,7 +406,7 @@ footer a {
   .activate-waystone-link img {
     width: 300px;
   }
-  
+
   .waystone-link img {
     width: 300px;
   }
@@ -463,7 +463,7 @@ footer a {
   font-size: 21px;
 }
 
-@media screen and (max-width: 990px){
+@media screen and (max-width: 990px) {
   .observatorium-text .body-text:first-child {
     max-width: 100%;
     font-size: 18px;
@@ -487,7 +487,7 @@ footer a {
   font-size: 20px;
 }
 
-@media screen and (max-width:990px) {
+@media screen and (max-width: 990px) {
   .waystone-link-text {
     padding-bottom: 40px;
   }
@@ -504,6 +504,7 @@ footer a {
   flex-wrap: wrap;
   justify-content: flex-end;
   width: 100%;
+  max-width: 50vw;
 }
 
 @media screen and (max-width: 990px) {
@@ -527,7 +528,7 @@ footer a {
 
 /* Modal  */
 .ReactModal__Overlay.ReactModal__Overlay--after-open {
-  background-color: rgba(0,0,0,0.55) !important;
+  background-color: rgba(0, 0, 0, 0.55) !important;
 }
 
 .ReactModal__Content {

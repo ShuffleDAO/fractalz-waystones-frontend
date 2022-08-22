@@ -73,7 +73,20 @@ export default function ConnectButton(props) {
 
                 if (chain.unsupported) {
                   return (
-                    <button onClick={openChainModal} type="button">
+                    <button
+                      onClick={openChainModal}
+                      type="button"
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        background: 'transparent',
+                        color: 'white',
+                        border: 0,
+                        fontSize: 24,
+                        fontFamily: 'redress',
+                        cursor: 'pointer',
+                      }}
+                    >
                       Wrong network
                     </button>
                   );

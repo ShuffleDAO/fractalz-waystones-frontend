@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import merge from 'lodash.merge';
 import {
   getDefaultWallets,
   RainbowKitProvider,
   midnightTheme,
-  Theme,
 } from '@rainbow-me/rainbowkit';
 import { WagmiConfig, createClient, chain, configureChains } from 'wagmi';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
