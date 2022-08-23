@@ -5,7 +5,7 @@ import ConnectButton from './connect-button';
 export default function Navigation(props) {
   const { audioFile } = props;
   const audioPlayer = useRef(null);
-  const [audioMuted, setAudioMuted] = useState(true);
+  const [audioMuted, setAudioMuted] = useState(false);
 
   const startAndStopAudio = () => {
     if (audioPlayer.current.paused) {
