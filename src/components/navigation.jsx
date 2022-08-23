@@ -38,7 +38,7 @@ export default function Navigation(props) {
           ></button>
         </li>
       </ul>
-      <audio loop ref={audioPlayer} src={audioFile}></audio>
+      <audio loop autoPlay ref={audioPlayer} src={audioFile}></audio>
     </nav>
   );
 }
