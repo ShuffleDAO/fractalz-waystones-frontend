@@ -14,6 +14,7 @@ const INVALID_PROOF_ERROR = 'execution reverted: Invalid proof';
 const EXCEEDS_MINT_ERROR = 'execution reverted: Exceeds mint allocation';
 const SALE_NOT_STARTED_ERROR = 'execution reverted: Sale has not started yet.';
 const EXCEEDS_MAX_SUPPLY_ERROR = 'execution reverted: Exceeds max supply';
+const UNDERLYING_NETWORK_ERROR = 'underlying network changed';
 
 export default function ExtractShardButton(props) {
   const [touched, setTouched] = useState(false);
@@ -89,6 +90,16 @@ export default function ExtractShardButton(props) {
           }}
         >
           All shards have been extracted!
+        </div>
+      ) : null}
+      {error && error.reason === UNDERLYING_NETWORK_ERROR && touched ? (
+        <div
+          style={{
+            color: 'yellow',
+          }}
+        >
+          Network error. Please disconnect and reconnect by clicking your
+          account.
         </div>
       ) : null}
     </div>
