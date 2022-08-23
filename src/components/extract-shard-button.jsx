@@ -1,37 +1,96 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
-  useContractWrite,
   usePrepareContractWrite,
-  // useContractRead,
+  useContractWrite,
+  useNetwork,
+  useAccount,
 } from 'wagmi';
+import generateMerkleProof from '../utils/generateMerkleProof';
+
+import { WAYSTONE_CONTRACT_ADDRESS } from '../utils/constants';
 import WaystoneContract from '../contracts/WaystoneDevContract.json';
 
+const INVALID_PROOF_ERROR = 'execution reverted: Invalid proof';
+const EXCEEDS_MINT_ERROR = 'execution reverted: Exceeds mint allocation';
+const SALE_NOT_STARTED_ERROR = 'execution reverted: Sale has not started yet.';
+const EXCEEDS_MAX_SUPPLY_ERROR = 'execution reverted: Exceeds max supply';
+
 export default function ExtractShardButton(props) {
-  // const { config, error } = usePrepareContractWrite({
-  //   addressOrName: '0x163f5496150e9539FB608cBE0130DD1778EdeC20',
-  //   contractInterface: WaystoneContract,
-  //   functionName: 'allowlistMint',
-  //   args: [
-  //     [
-  //       '0xfa820a421a73532a4f7f1b072c73674692fe3d1d758a3320bdf06aad2d2a3af8',
-  //       '0x89461e4537c6a022510184bb3c82022c1e1402f474cd217c0a98d586977b16cf',
-  //     ],
-  //   ], // merkel tree api
-  // });
-  // const { write } = useContractWrite(config);
+  const [touched, setTouched] = useState(false);
+  const { chain } = useNetwork();
+  const { address } = useAccount();
+  const contractAddress = WAYSTONE_CONTRACT_ADDRESS[chain?.id];
+
+  const merkleProof = generateMerkleProof(address);
+
+  const { config, error } = usePrepareContractWrite({
+    addressOrName: contractAddress,
+    contractInterface: WaystoneContract,
+    functionName: 'allowlistMint',
+    args: [merkleProof],
+  });
+  const { write } = useContractWrite(config);
+
+  if (!contractAddress) {
+    return <></>;
+  }
 
   return (
-    <>
-      {/* <button
-        disabled={!write}
-        onClick={() => write?.()}
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-end',
+        marginBottom: 16,
+      }}
+    >
+      <button
+        disabled={!address}
+        onClick={() => {
+          setTouched(true);
+          write?.();
+        }}
         className="extract-shard-link"
       >
         <img alt="Link to extract shard" src="/assets/buttons/shard.png" />
       </button>
-      {error && (
-        <div>An error occurred preparing the transaction: {error.message}</div>
-      )} */}
-    </>
+      {error && error.reason === INVALID_PROOF_ERROR && touched ? (
+        <div
+          style={{
+            color: 'yellow',
+          }}
+        >
+          Your address is not on the holo-records. Please wait for public
+          extraction.
+        </div>
+      ) : null}
+      {error && error.reason === EXCEEDS_MINT_ERROR && touched ? (
+        <div
+          style={{
+            color: 'yellow',
+          }}
+        >
+          The holo-records indicate a shard has already been extracted by you.
+        </div>
+      ) : null}
+      {error && error.reason === SALE_NOT_STARTED_ERROR && touched ? (
+        <div
+          style={{
+            color: 'yellow',
+          }}
+        >
+          Extraction is not available yet. Please await further messages.
+        </div>
+      ) : null}
+      {error && error.reason === EXCEEDS_MAX_SUPPLY_ERROR && touched ? (
+        <div
+          style={{
+            color: 'yellow',
+          }}
+        >
+          All shards have been extracted!
+        </div>
+      ) : null}
+    </div>
   );
 }

@@ -1,10 +1,20 @@
 import axios from 'axios';
 
-// TODO: Should be a GET not a POST
 export default async function getMerkleProofs(address) {
   const data = await axios.post(
     'https://vercel-api-theta.vercel.app/api/proof',
-    { address }
+    { address },
+    {
+      withCredentials: false,
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Credentials': false,
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+      },
+    }
   );
   console.log('hi', data);
+
+  return data;
 }

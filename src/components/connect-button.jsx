@@ -1,29 +1,7 @@
 import React from 'react';
-// import { useAccount, useConnect } from 'wagmi';
-// import { InjectedConnector } from 'wagmi/connectors/injected';
 import { ConnectButton as RainbowConnectButton } from '@rainbow-me/rainbowkit';
-// import getMerkleProofs from '../utils/getMerkleProofs';
 
 export default function ConnectButton(props) {
-  // const { address, isConnected } = useAccount();
-  // const { connect } = useConnect({
-  //   connector: new InjectedConnector(),
-  // });
-
-  // console.log(isConnected);
-  // const connectWallet = () => {
-  //   console.log('connect to me');
-  //   connect();
-  // };
-
-  // <button className="connect-btn" onClick={() => connectWallet()}>
-  //   <img
-  //     className="connect-link"
-  //     alt="Link to ETC Wallet"
-  //     src="/assets/buttons/connect.png"
-  //   />
-  // </button>
-
   return (
     <div style={{ marginRight: 16 }}>
       <RainbowConnectButton.Custom>
