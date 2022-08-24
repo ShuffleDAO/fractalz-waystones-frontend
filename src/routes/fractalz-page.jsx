@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import Navigation from '../components/navigation';
 import VideoBackground from "../components/video-background";
+import { Helmet } from "react-helmet";
 
 export default function FractalzPage() {
   const [isAllowed, setIsAllowed] = useState(false);
 
   return (
     <>
+      <Helmet>
+        <meta property="og:url" content="https://www.fractalz.io/fractalz"/>
+        <meta property="twitter:url" content="https://www.fractalz.io/fractalz"/>
+      </Helmet>
       <header>
         <Navigation audioFile={"/assets/audio/at-the-abyss.mp3"} />
       </header>

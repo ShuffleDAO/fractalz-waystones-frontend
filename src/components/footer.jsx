@@ -11,12 +11,12 @@ export default function Footer() {
           </a>
         </li>
         <li className="social-icon">
-          <a href="Hyperlink: https://discord.gg/fractalz" target="_blank" rel="noreferrer">
+          <a href="https://discord.gg/fractalz" target="_blank" rel="noreferrer">
             <img alt="Link to discord server" src="/assets/icons/Discord.png" />
           </a>
         </li>
         <li className="social-icon">
-          <a href="https://opensea.io/collection/fractalz-nft" target="_blank" rel="noreferrer">
+          <a href="https://opensea.io/collection/fractalz-waystones" target="_blank" rel="noreferrer">
             <img alt="Link to Open Sea page" src="/assets/icons/OpenSea.png" />
           </a>
         </li>
