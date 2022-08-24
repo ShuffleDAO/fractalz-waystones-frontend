@@ -43,7 +43,7 @@ root.render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/waystone" element={<WaystonePage />} />
+          <Route path="/waystones" element={<WaystonePage />} />
           <Route path="/fractalz" element={<FractalzPage />} />
         </Routes>
       </BrowserRouter>
