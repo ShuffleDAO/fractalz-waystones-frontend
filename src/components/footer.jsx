@@ -27,7 +27,7 @@ export default function Footer() {
         </li>
       </ul>
       <div className="waystone-link-wrapper">
-          <Link to="/waystone">
+          <Link to="/waystones">
             <img className="journey" alt="Link to Waystones Mint Page" src="/assets/buttons/journey.png" />
           </Link>
       </div>
