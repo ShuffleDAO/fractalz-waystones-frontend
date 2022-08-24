@@ -27,8 +27,7 @@ export default function ExtractShardButton(props) {
   const { config, error } = usePrepareContractWrite({
     addressOrName: contractAddress,
     contractInterface: WaystoneContract,
-    functionName: 'allowlistMint',
-    args: [merkleProof],
+    functionName: 'mint',
   });
   const { write } = useContractWrite(config);
 
