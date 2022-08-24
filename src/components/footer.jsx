@@ -21,7 +21,7 @@ export default function Footer() {
           </a>
         </li>
         <li className="social-icon">
-          <a href="https://etherscan.io/address/0x1234567890" target="_blank" rel="noreferrer">
+          <a href="https://etherscan.io/address/0x163f5496150e9539FB608cBE0130DD1778EdeC20" target="_blank" rel="noreferrer">
             <img alt="Link to Etherscan page" src="/assets/icons/Etherscan.png" />
           </a>
         </li>
