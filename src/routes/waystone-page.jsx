@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from "react-helmet";
 
 import Navigation from '../components/navigation';
 import VideoBackground from '../components/video-background';
@@ -13,6 +14,10 @@ export default function WaystonePage() {
 
   return (
     <>
+      <Helmet>
+        <meta property="og:url" content="https://www.fractalz.io/waystones"/>
+        <meta property="twitter:url" content="https://www.fractalz.io/waystones"/>
+      </Helmet>
       <header>
         <Navigation audioFile={'/assets/audio/at-the-abyss-bass.mp3'} />
       </header>
