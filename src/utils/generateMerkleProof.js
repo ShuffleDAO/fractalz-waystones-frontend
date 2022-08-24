@@ -12,8 +12,7 @@ export default function generateMerkleProof(
 ) {
   const hashedAddress = keccak256(address);
   const merkleTree = new MerkleTree(hashedAddresses, keccak256, {
-    sortPairs: true,
-    duplicateOdd: true,
+    sortPairs: true
   });
   const proof = merkleTree.getHexProof(hashedAddress);
 
