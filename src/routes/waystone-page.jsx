@@ -24,7 +24,7 @@ export default function WaystonePage() {
       <main>
         <section>
           <Model
-            text="The Observatorium is not ready yet. More Waystones need to be extracted in order to trigger The Emergence, Legion."
+            text="The Observatorium is not ready yet. The Archon Scholars need more time to study the extracted Waystones, to understand their collective ability to trigger The Emergence, Legion."
             isModelOpen={isModelOpen}
             setIsModelOpen={setIsModelOpen}
           />
@@ -52,10 +52,6 @@ export default function WaystonePage() {
                 </div>
               </div>
               <div className="observatorium-text">
-                <p className="body-text">
-                  Once you have obtained a Shard, enter the Observatorium to
-                  explore the nature of this mysterious crystal further...
-                </p>
                 <div className="link-wrapper">
                   {launched ? (
                     <Link to="/fractalz" className="waystone-link">
@@ -80,15 +76,14 @@ export default function WaystonePage() {
                   Were you unable to extract a Shard?
                 </p>
                 <p className="waystone-link-text">
-                  Perhaps the{' '}
+                  Visit the{' '}
                   <a
                     target="_blank"
                     href="https://opensea.io/collection/fractalz-waystones"
                     rel="noreferrer"
                   >
                     Legion Bazaar
-                  </a>{' '}
-                  may have what you are looking for...
+                  </a>
                 </p>
               </div>
             </article>

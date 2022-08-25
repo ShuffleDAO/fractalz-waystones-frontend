@@ -308,7 +308,7 @@ footer a {
 }
 
 .observatorium-text {
-  margin-top: 100px;
+  margin-top: 40px;
 }
 
 @media screen and (max-height: 801px) {
@@ -511,6 +511,7 @@ footer a {
 @media screen and (max-width: 990px) {
   .link-wrapper {
     justify-content: center;
+    max-width: none;
   }
 }
 
