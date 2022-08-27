@@ -44,7 +44,7 @@ root.render(
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/waystones" element={<WaystonePage />} />
-          <Route path="/fractalz" element={<FractalzPage />} />
+          <Route path="/mint" element={<FractalzPage />} />
         </Routes>
       </BrowserRouter>
     </RainbowKitProvider>

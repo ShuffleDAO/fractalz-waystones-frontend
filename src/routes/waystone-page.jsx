@@ -54,7 +54,7 @@ export default function WaystonePage() {
               <div className="observatorium-text">
                 <div className="link-wrapper">
                   {launched ? (
-                    <Link to="/fractalz" className="waystone-link">
+                    <Link to="/mint" className="waystone-link">
                       <img
                         alt="Link to extract shard"
                         src="/assets/buttons/observatorium.png"
