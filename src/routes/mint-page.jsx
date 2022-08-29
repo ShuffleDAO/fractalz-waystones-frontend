@@ -14,7 +14,7 @@ export default function MintPage() {
         <meta property="twitter:url" content="https://www.fractalz.io/mint"/>
       </Helmet>
       <header>
-        <Navigation audioFile={"/assets/audio/at-the-abyss.mp3"} />
+        <Navigation audioFile={"/assets/audio/at-the-abyss.wav"} />
       </header>
       <main>
         <section>
