@@ -13,7 +13,7 @@ import '@rainbow-me/rainbowkit/styles.css';
 
 import Main from './Main';
 import WaystonePage from './routes/waystone-page';
-import FractalzPage from './routes/fractalz-page';
+import MintPage from './routes/mint-page';
 import './index.css';
 
 const { chains, provider } = configureChains(
@@ -44,7 +44,7 @@ root.render(
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/waystones" element={<WaystonePage />} />
-          <Route path="/mint" element={<FractalzPage />} />
+          <Route path="/mint" element={<MintPage />} />
         </Routes>
       </BrowserRouter>
     </RainbowKitProvider>

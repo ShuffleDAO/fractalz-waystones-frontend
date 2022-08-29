@@ -15,7 +15,7 @@ const SALE_NOT_STARTED_ERROR = 'execution reverted: Sale has not started yet.';
 const EXCEEDS_MAX_SUPPLY_ERROR = 'execution reverted: Exceeds max supply';
 const UNDERLYING_NETWORK_ERROR = 'underlying network changed';
 
-export default function ExtractShardButton(props) {
+export default function ActiveWaystoneButton(props) {
   const [touched, setTouched] = useState(false);
   const { chain } = useNetwork();
   const { address } = useAccount();
@@ -49,7 +49,7 @@ export default function ExtractShardButton(props) {
         }}
         className="extract-shard-link"
       >
-        <img alt="Link to extract shard" src="/assets/buttons/shard.png" />
+        <img alt="Link to active waystone" src="/assets/buttons/waystone.png" />
       </button>
       {error && error.reason === INVALID_PROOF_ERROR && touched ? (
         <div
