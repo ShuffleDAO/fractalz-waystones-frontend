@@ -19,7 +19,7 @@ export default function MintPage() {
       <main>
         <section>
           <div className="background-wrapper">
-            <VideoBackground videoSrc={"/assets/videos/mintpage.webm"} />
+            <VideoBackground poster="/assets/videos/mintpage.jpg" mp4Src={"/assets/videos/mintpage.mp4"} />
             <article className="waystone-content">
               <div className="activate-waystone-text">
                 <p className="body-text">The Emergence appears to have begun…</p>

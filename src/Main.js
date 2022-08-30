@@ -16,7 +16,11 @@ export default function Main() {
       <main>
         <section>
           <div className="background-wrapper">
-            <VideoBackground videoSrc={"/assets/videos/Homepge_Background.webm"} />
+            <VideoBackground
+              webmSrc="/assets/videos/Homepge_Background.webm"
+              mp4Src="/assets/videos/Homepge_Background.mp4"
+              poster="/assets/videos/Homepge_Background.jpg"
+            />
           </div>
         </section>
       </main>

@@ -30,7 +30,8 @@ export default function WaystonePage() {
           />
           <div className="background-wrapper">
             <VideoBackground
-              videoSrc={'/assets/videos/waystone-mintpage.mp4'}
+              poster="/assets/videos/waystone-mintpage.jpg"
+              mp4Src='/assets/videos/waystone-mintpage.mp4'
             />
             <article className="waystone-content">
               <div className="extract-shard-text">
