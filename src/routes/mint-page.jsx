@@ -2,7 +2,6 @@ import React from "react";
 import Navigation from '../components/navigation';
 import VideoBackground from "../components/video-background";
 import ActiveWaystoneButton from '../components/activate-waystone-button';
-import WaystoneInfo from "../components/waystone-info";
 import { Helmet } from "react-helmet";
 
 export default function MintPage() {
@@ -24,10 +23,9 @@ export default function MintPage() {
               <div className="activate-waystone-text">
                 <p className="body-text">The Emergence appears to have begun…</p>
                 <p className="body-text">Legends tell of ancient stones, known as Waystones, that were used to call across the Cosmos to Fractalz.</p>
-                <p className="body-text">Could this Shard you possess be the key to hailing them through the Void?</p>
+                <p className="body-text">Could this Shard you possess be the key to hailing them?</p>
                 <div className="link-wrapper">
                   <ActiveWaystoneButton />
-                  <WaystoneInfo />
                 </div>
               </div>
           </article>

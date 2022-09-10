@@ -6,8 +6,9 @@ import {
   useAccount,
 } from 'wagmi';
 
-import { WAYSTONE_CONTRACT_ADDRESS } from '../utils/constants';
-import WaystoneContract from '../contracts/WaystoneDevContract.json';
+import {GENESIS_CONTRACT_ADDRESS} from '../utils/constants';
+import GenesisContract from '../contracts/WaystoneDevContract.json';
+import GenesisInfo from "./genesis-info";
 
 const INVALID_PROOF_ERROR = 'execution reverted: Invalid proof';
 const EXCEEDS_MINT_ERROR = 'execution reverted: Exceeds mint allocation';
@@ -19,11 +20,11 @@ export default function ActiveWaystoneButton(props) {
   const [touched, setTouched] = useState(false);
   const { chain } = useNetwork();
   const { address } = useAccount();
-  const contractAddress = WAYSTONE_CONTRACT_ADDRESS[chain?.id];
+  const contractAddress = GENESIS_CONTRACT_ADDRESS[chain?.id];
 
   const { config, error } = usePrepareContractWrite({
     addressOrName: contractAddress,
-    contractInterface: WaystoneContract,
+    contractInterface: GenesisContract,
     functionName: 'mint',
   });
   const { write } = useContractWrite(config);
@@ -98,6 +99,7 @@ export default function ActiveWaystoneButton(props) {
           account.
         </div>
       ) : null}
+        <GenesisInfo />
     </div>
   );
 }
