@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fonts  */
+@font-face {
+    font-family: redress;
+    src: url('/assets/fonts/Redressed-Regular.ttf');
+}
+
+@font-face {
+    font-family: comic-runes;
+    src: url('/assets/fonts/ComicRunes.otf');
+}
+
+@font-face {
+    font-family: biondi-sans;
+    src: url('/assets/fonts/Biondi-Sans-Light.ttf');
+}
+
+body {
+    margin: 0;
+    font-size: 16px;
+    background: rgba(0,0,0,.3);
+    color: white;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: biondi-sans, sans-serif;
+}
+
+video{
+    max-width: none !important;
+}
+
+.video-background::after{
+    background: rgba(0,0,0,.3);
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.border-glow{
+    @apply tracking-wider;
+    border: 2px solid #dadada;
+    border-radius: 30px;
+    outline: none;
+    box-shadow: inset 0 0 20px #e8edf5, 0 0 20px #e8edf5;
+}
