@@ -15,6 +15,8 @@ import {
 } from 'wagmi';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
+import {AnimatePresence} from "framer-motion";
+import {useRouter} from "next/router";
 
 const { chains, provider } = configureChains(
     [chain.mainnet, chain.rinkeby],
@@ -36,10 +38,16 @@ const wagmiClient = createClient({
 })
 
 function FractalzApp({ Component, pageProps }: AppProps) {
+    const router = useRouter()
   return (
       <WagmiConfig client={wagmiClient}>
           <RainbowKitProvider chains={chains} theme={midnightTheme()}>
-              <Component {...pageProps} />
+              <AnimatePresence
+                  exitBeforeEnter
+                  initial={false}
+              >
+                  <Component {...pageProps} key={router.pathname}/>
+              </AnimatePresence>
           </RainbowKitProvider>
       </WagmiConfig>
   )

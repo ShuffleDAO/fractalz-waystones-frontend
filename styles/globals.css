@@ -21,7 +21,7 @@
 body {
     margin: 0;
     font-size: 16px;
-    background: rgba(0,0,0,.3);
+    background: rgba(0,0,0,.98);
     color: white;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -34,7 +34,7 @@ video{
 }
 
 .video-background::after{
-    background: rgba(0,0,0,.3);
+    background: rgba(0,0,0,.4);
     bottom: 0;
     content: "";
     left: 0;
