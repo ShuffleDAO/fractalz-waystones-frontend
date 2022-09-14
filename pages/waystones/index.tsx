@@ -59,21 +59,11 @@ const Mint: NextPage = () => {
                     <div className={"flex grow justify-center md:justify-end md:pb-0"}>
                         <div className={"self-end"}>
                             <FractalzLink
-                                onClick={()=>{setModalHidden(false)}}
+                                href={'/mint'}
                                 type={'action'}
                             >
                                 enter observatorium
                             </FractalzLink>
-                            <FractalzModal
-                                isHidden={isModalHidden}
-                                setHidden={setModalHidden}
-                            >
-                                <p>
-                                    The Observatorium is not ready yet. The Archon Scholars need more time to study the
-                                    extracted Waystones, to understand their collective ability to trigger The
-                                    Emergence, Legion.
-                                </p>
-                            </FractalzModal>
                         </div>
                     </div>
                 </motion.div>
