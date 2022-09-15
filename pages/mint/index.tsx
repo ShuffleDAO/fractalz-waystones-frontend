@@ -38,8 +38,7 @@ const Mint: NextPage = () => {
                     </div>
                     <div className={"flex justify-center md:justify-end"}>
                         <p className={"max-w-xl text-lg text-center md:text-right"}>
-                            Legends tell of ancient stones, known as Waystones, that were used to call across the Cosmos
-                            to Fractalz.
+                            Legends tell of ancient stones, known as Waystones, that were used to call Fractalz from across the Cosmos.
                         </p>
                     </div>
                     <div className={"flex justify-center md:justify-end"}>
@@ -48,12 +47,18 @@ const Mint: NextPage = () => {
                         </p>
                     </div>
                     <div className={"flex grow justify-center md:justify-end pb-20 md:pb-0"}>
-                        <div className={"self-end text-center text-2xl font-['redress']"}>
+                        <div className={"self-end text-right text-2xl font-['redress']"}>
                             <div className={"mb-4"}>
-                                Waystone: 0.03 <i className="fa-brands fa-ethereum"/> || No Waystone: 0.06 <i className="fa-brands fa-ethereum"/>
+                                With Waystone: 0.03 <i className="fa-brands fa-ethereum"/> || No Waystone: 0.06 <i className="fa-brands fa-ethereum"/>
                             </div>
                             <div className={"mb-4"}>
                                 5 Fractalz per Waystone
+                            </div>
+                            <div className={"mb-4"}>
+                                Fractalz Breached: X,XXX
+                            </div>
+                            <div className={"mb-4"}>
+                                Est. Portal Closing: XX:XX:XX
                             </div>
                             <FractalzLink
                                 onClick={()=>{setModalHidden(false)}}
@@ -61,12 +66,6 @@ const Mint: NextPage = () => {
                             >
                                 activate waystone
                             </FractalzLink>
-                            <div className={"mb-4"}>
-                                Fractalz Breached: X,XXX
-                            </div>
-                            <div className={"mb-3"}>
-                                Est. Portal Closing: XX:XX:XX
-                            </div>
                         </div>
                     </div>
                 </motion.div>
@@ -113,7 +112,7 @@ const Mint: NextPage = () => {
                             }
                             exit={{ opacity: 0 }}
                         >
-                            <div className={"pb-5 font-bold tracking-widest"}>
+                            <div className={"pb-3 font-bold tracking-widest"}>
                                 A.T.L.A.S.:
                             </div>
                             {isConfirmed && <motion.div
@@ -124,7 +123,7 @@ const Mint: NextPage = () => {
                                     delay: 3
                                 }}
                                 exit={{ opacity: 0 }}
-                                className={"pb-5 px-4"}
+                                className={"pb-3 px-4"}
                             >
                                 Waystone Activated & Aether Accepted.…
                             </motion.div>}
@@ -136,10 +135,22 @@ const Mint: NextPage = () => {
                                     delay: 6
                                 }}
                                 exit={{ opacity: 0 }}
-                                className={"pb-5 px-4"}
+                                className={"pb-3 px-4"}
                             >
                                 Waybridge now attempting to call
                                 through the portal.…
+                            </motion.div>}
+                            {isConfirmed && <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{
+                                    duration: 1,
+                                    delay: 6
+                                }}
+                                exit={{ opacity: 0 }}
+                                className={"px-4"}
+                            >
+                                Follow their progress <FractalzLink type={"a"} href={"https://etherscan.io"} rel={"noreferrer"} target={"_blank"}>here</FractalzLink>
                             </motion.div>}
                         </motion.div>}
                     </AnimatePresence>
