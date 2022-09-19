@@ -1,11 +1,11 @@
 import { Range } from 'react-range';
 
-export default function FractalzSlider(props: {sliderState: any,setSliderState: any}){
+export default function FractalzSlider(props: {sliderState: any,setSliderState: any,min:number,max:number}){
     return (
         <Range
             step={1}
-            min={1}
-            max={5}
+            min={props.min}
+            max={props.max}
             values={props.sliderState.values}
             onChange={(values) => props.setSliderState({ values })}
             renderTrack={({ props, children }) => (

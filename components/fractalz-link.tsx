@@ -2,7 +2,7 @@ import Image from "next/image";
 import {motion, useTime, useTransform} from "framer-motion";
 import {useRouter} from "next/router";
 
-export default function FractalzLink(props: { href?: string, target?: string, rel?: string, children: any, type?: 'a'|'link'|'button'|'action', onClick?: any }){
+export default function FractalzLink(props: { href?: string, target?: string, rel?: string, children: any, type?: 'a'|'link'|'button'|'action', onClick?: any, disabled?: boolean }){
     const router = useRouter()
     if(props.type==='link'){
         return(
@@ -22,8 +22,13 @@ export default function FractalzLink(props: { href?: string, target?: string, re
     }else if(props.type==='button'||props.type==='action'){
         return(
             <motion.button
-                onClick={()=>{props.onClick ? props.onClick() : router.push(props.href!)}}
-                className={"cursor-pointer"+(props.type==='action'?' font-[\'redress\'] text-4xl pt-2 pb-4 mb-4 px-8 border-glow rounded-full':'')}
+                disabled={props.disabled}
+                onClick={()=>{
+                    if(!props.disabled){
+                        props.onClick ? props.onClick() : router.push(props.href!)
+                    }
+                }}
+                className={"cursor-pointer"+(props.type==='action'?' font-[\'redress\'] text-4xl pt-2 pb-4 mb-4 px-8 border-glow rounded-full':'')+(props.disabled ? ' opacity-50' : '')}
                 whileHover={{
                     scale: 1.1,
                     opacity: 0.5,
