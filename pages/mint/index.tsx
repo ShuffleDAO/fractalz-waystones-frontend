@@ -96,9 +96,8 @@ const Mint: NextPage = () => {
             setSuccessful(true)
         },
         onSettled: (res) => {
+            setSliderState({values: [1]})
             setAwaitingTx(false)
-            console.log('fin', res)
-            setSliderState(1)
         }
     })
 
