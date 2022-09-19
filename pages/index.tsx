@@ -32,7 +32,7 @@ const Home: NextPage = () => {
                         <FractalzLink href="https://discord.gg/fractalz" target="_blank" rel="noreferrer">
                             <Image height={50} width={50} alt="Link to discord server" src="/assets/icons/Discord.png" />
                         </FractalzLink>
-                        <FractalzLink href="https://opensea.io/collection/fractalz-waystones" target="_blank" rel="noreferrer">
+                        <FractalzLink href="https://opensea.io/collection/fractalz-genesis" target="_blank" rel="noreferrer">
                             <Image height={50} width={50} alt="Link to Open Sea page" src="/assets/icons/OpenSea.png" />
                         </FractalzLink>
                         <FractalzLink href="https://etherscan.io/address/0x4c8cf80a3a83c2d853956005b3a5eceb0a7d91aa" target="_blank" rel="noreferrer">

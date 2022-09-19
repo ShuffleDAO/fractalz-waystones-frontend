@@ -326,7 +326,7 @@ const Mint: NextPage = () => {
                             Waybridge now attempting to hail
                             through the portal...
                         </div>
-                        <FractalzLink type={"a"} href={`https://sepolia.etherscan.io/tx/${txHash}`} target={"_blank"}
+                        <FractalzLink type={"a"} href={`https://etherscan.io/tx/${txHash}`} target={"_blank"}
                                       rel={"noreferrer"}>
                             <button className={"border border0white px-3 py-1 mb-6"}>
                                 Follow progress... <i className="fa-light fa-arrow-up-right-from-square"/>
