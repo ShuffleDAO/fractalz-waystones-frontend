@@ -16,7 +16,7 @@ import {
     useSigner, useWaitForTransaction
 } from "wagmi";
 import {getProvider} from "@wagmi/core";
-import {BigNumberish, ethers} from "ethers";
+import {BigNumber, BigNumberish, ethers} from "ethers";
 
 const Mint: NextPage = () => {
 
@@ -170,7 +170,7 @@ const Mint: NextPage = () => {
                                 <span className={"border border-white pb-3 px-3 font-['comic-runes','cursive']"}>{sliderState && sliderState.values[0]}</span>
                                 <span className={"border border-white px-3 self-stretch text-center flex flex-row font-mono"}>
                                     <span className={"self-center"}>
-                                        {state.mintConfig && ethers.utils.formatEther(state.mintConfig.waystonePrice.mul(sliderState.values[0]))} <i className="fa-brands fa-ethereum"/>
+                                        {state.mintConfig && ethers.utils.formatEther((state.mintConfig.waystonePrice as BigNumber).mul(sliderState.values[0]))} <i className="fa-brands fa-ethereum"/>
                                     </span>
                                 </span>
                             </div>}
@@ -181,7 +181,7 @@ const Mint: NextPage = () => {
                                 <FractalzLink disabled={isAwaitingConf || isAwaitingTx} onClick={async ()=>{
                                     setAwaitingConf(true)
                                     contract.mint(sliderState.values[0],false,{
-                                        value: state.mintConfig.waystonePrice.mul(sliderState.values[0])
+                                        value: (state.mintConfig.waystonePrice as BigNumber).mul(sliderState.values[0])
                                     }).then(res=>{
                                         setTxHash(res.hash)
                                         setAwaitingTx(true)
