@@ -115,6 +115,7 @@ const Mint: NextPage = () => {
             poster="/assets/videos/mintpage-poster.jpg"
             offset="-translate-x-[35.75%] md:-translate-x-1/2"
             audioFile={"/assets/audio/at-the-abyss.wav"}
+            path={"mint"}
         >
             <section className={"absolute top-0 w-screen px-5"}>
                 <motion.div
@@ -243,7 +244,7 @@ const Mint: NextPage = () => {
                                 {waystones == 0 && fractalz == 0 && <FractalzLink disabled={isAwaitingConf || isAwaitingTx} onClick={async () => {
                                     setAwaitingConf(true);
                                     contract.mint(1, false, {
-                                        value: (state.mintConfig.price as BigNumber)
+                                        value: (state.mintConfig.price as BigNumber),
                                     }).then(res => {
                                         setModalHidden(true)
                                         setTxHash(res.hash);
@@ -308,8 +309,12 @@ const Mint: NextPage = () => {
                     <div className={"flex flex-row justify-around px-5 pb-6"}>
                         <FractalzLink disabled={isAwaitingConf} onClick={async () => {
                             setAwaitingConf(true);
-                            contract.mint(sliderState.values[0], true, {
+                            const prediction = await contract.estimateGas.mint(sliderState.values[0], true, {
                                 value: (state.mintConfig.waystonePrice as BigNumber).mul(sliderState.values[0]).add(state.mintConfig.bonusPrice as BigNumber)
+                            })
+                            contract.mint(sliderState.values[0], true, {
+                                value: (state.mintConfig.waystonePrice as BigNumber).mul(sliderState.values[0]).add(state.mintConfig.bonusPrice as BigNumber),
+                                gasLimit: prediction.add(prediction.div(5).mul(4))
                             }).then(res => {
                                 setModalHidden(true)
                                 setBonusModalHidden(true)

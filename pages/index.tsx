@@ -16,6 +16,7 @@ const Home: NextPage = () => {
             poster="/assets/videos/Homepge_Background-poster.jpg"
             offset="-translate-x-[52.5%] md:-translate-x-1/2"
             audioFile={"/assets/audio/at-the-abyss.wav"}
+            path={"home"}
         >
             <section className={"absolute inset-x-0 bottom-0 w-screen"}>
                 <motion.div

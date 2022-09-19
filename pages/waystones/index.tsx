@@ -15,6 +15,7 @@ const Mint: NextPage = () => {
             poster="/assets/videos/waystone-mintpage-poster.jpg"
             offset="-translate-x-[35.75%] md:-translate-x-1/2"
             audioFile={"/assets/audio/at-the-abyss-bass.mp3"}
+            path={"waystones"}
         >
             <section className={"absolute top-0 w-screen px-5"}>
                 <motion.div

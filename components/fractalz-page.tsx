@@ -11,11 +11,12 @@ export default function FractalzPage(props: {
     poster: string,
     offset?:string,
     audioFile: string,
+    path?: string,
     children: any
 }){
     return (
         <>
-            <Header/>
+            <Header path={props.path}/>
             <section>
                 <VideoBackground
                     webmSrc={props.webmSrc}
