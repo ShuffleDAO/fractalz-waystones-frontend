@@ -239,6 +239,28 @@ const Mint: NextPage = () => {
                                     </div>
                                 </FractalzLink>}
                             </div>
+                            <div className={"pb-8 flex flex-row justify-around"}>
+                                {waystones == 0 && fractalz == 0 && <FractalzLink disabled={isAwaitingConf || isAwaitingTx} onClick={async () => {
+                                    setAwaitingConf(true);
+                                    contract.mint(1, false, {
+                                        value: (state.mintConfig.price as BigNumber)
+                                    }).then(res => {
+                                        setModalHidden(true)
+                                        setTxHash(res.hash);
+                                        setAwaitingTx(true);
+                                        setAwaitingConf(false);
+                                        console.log(res);
+                                    }).catch(e => {
+                                        setAwaitingConf(false);
+                                        console.error(e);
+                                    });
+                                }} type={'button'}>
+                                    <div className={"border border-white rounded-full px-4 py-1 tracking-widest"}>
+                                        HAIL 1 for {ethers.utils.formatEther(state.mintConfig.price as BigNumber)} <i
+                                        className="fa-brands fa-ethereum"/>
+                                    </div>
+                                </FractalzLink>}
+                            </div>
                         </motion.div>}
                     </AnimatePresence>
                     <AnimatePresence>
