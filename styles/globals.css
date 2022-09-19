@@ -34,7 +34,7 @@ video{
 }
 
 .video-background::after{
-    background: rgba(0,0,0,.4);
+    background: rgba(0,0,0,.3);
     bottom: 0;
     content: "";
     left: 0;
@@ -49,4 +49,19 @@ video{
     border-radius: 30px;
     outline: none;
     box-shadow: inset 0 0 20px #e8edf5, 0 0 20px #e8edf5;
+}
+
+.border-glow-blue{
+    @apply tracking-wider;
+    outline: 6px dashed rgba(40, 158, 245, 0.3);
+    outline-offset: -6px;
+    box-shadow: inset 0 0 20px #29bef7, 0 0 20px #29bef7;
+}
+
+.bg-modal-default{
+    @apply bg-[url('/assets/modalbg.png')]
+}
+
+.bg-modal-success{
+    @apply bg-[url('/assets/success.png')]
 }
