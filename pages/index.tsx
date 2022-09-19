@@ -35,7 +35,7 @@ const Home: NextPage = () => {
                         <FractalzLink href="https://opensea.io/collection/fractalz-waystones" target="_blank" rel="noreferrer">
                             <Image height={50} width={50} alt="Link to Open Sea page" src="/assets/icons/OpenSea.png" />
                         </FractalzLink>
-                        <FractalzLink href="https://etherscan.io/address/0x163f5496150e9539FB608cBE0130DD1778EdeC20" target="_blank" rel="noreferrer">
+                        <FractalzLink href="https://etherscan.io/address/0x4c8cf80a3a83c2d853956005b3a5eceb0a7d91aa" target="_blank" rel="noreferrer">
                             <Image height={50} width={50} alt="Link to Etherscan page" src="/assets/icons/Etherscan.png" />
                         </FractalzLink>
                     </div>

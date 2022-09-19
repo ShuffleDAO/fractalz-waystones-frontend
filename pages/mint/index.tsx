@@ -11,7 +11,7 @@ import {BigNumber, BigNumberish, ethers} from "ethers";
 
 const Mint: NextPage = () => {
 
-    const GENESIS = '0x38293814030682Ef3469CE162fA8D461188ed835'
+    const GENESIS = '0x4C8cf80a3A83C2D853956005B3a5ecEB0A7D91AA'
 
     const [state, setState] = useState({} as Genesis.ContractStateStruct)
 
@@ -51,7 +51,7 @@ const Mint: NextPage = () => {
     })
 
     useContractRead({
-        addressOrName: '0x14A4c6fE5ac1D6fBE2AA561841d0ba35235f0438',
+        addressOrName: '0x163f5496150e9539FB608cBE0130DD1778EdeC20',
         contractInterface: Mock1155__factory.createInterface(),
         functionName: 'balanceOf',
         args: [useAccount().address, 1],

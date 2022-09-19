@@ -19,7 +19,7 @@ import {AnimatePresence} from "framer-motion";
 import {useRouter} from "next/router";
 
 const { chains, provider } = configureChains(
-    [chain.mainnet, chain.sepolia],
+    [chain.mainnet],
     [
         alchemyProvider({ apiKey: 'gv2-JHsuB0A3KHKMn2Nur5rJ1o57dhKc' }),
         publicProvider()
