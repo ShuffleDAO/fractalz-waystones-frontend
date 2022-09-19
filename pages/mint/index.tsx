@@ -98,6 +98,7 @@ const Mint: NextPage = () => {
         onSettled: (res) => {
             setAwaitingTx(false)
             console.log('fin', res)
+            setSliderState(1)
         }
     })
 
@@ -193,6 +194,9 @@ const Mint: NextPage = () => {
                             {allowance > 0 && <div className={"px-3"}>
                                 How many Fractalz will you hail, Legion?
                             </div>}
+                            {allowance === 0 && <div className={"px-3"}>
+                                You have hailed the maximum allowed per wasytones in the Waybridge.
+                            </div>}
                             {allowance > 0 && <div className={"pt-4 text-xl flex flex-row justify-center gap-x-3"}>
                                 <span
                                     className={"border border-white pb-3 px-3 font-['comic-runes','cursive']"}>{sliderState && sliderState.values[0]}</span>
@@ -208,8 +212,8 @@ const Mint: NextPage = () => {
                                 <FractalzSlider min={1} max={allowance} sliderState={sliderState}
                                                 setSliderState={setSliderState}/>
                             </div>}
-                            <div className={"pt-8 pb-5 flex flex-row justify-around"}>
-                                <FractalzLink disabled={isAwaitingConf || isAwaitingTx} onClick={async () => {
+                            <div className={"pt-8 pb-3 flex flex-row justify-around"}>
+                                {allowance > 0 && <FractalzLink disabled={isAwaitingConf || isAwaitingTx} onClick={async () => {
                                     setAwaitingConf(true);
                                     contract.mint(sliderState.values[0], false, {
                                         value: (state.mintConfig.waystonePrice as BigNumber).mul(sliderState.values[0])
@@ -227,8 +231,8 @@ const Mint: NextPage = () => {
                                     <div className={"border border-white rounded-full px-4 py-1 tracking-widest"}>
                                         HAIL
                                     </div>
-                                </FractalzLink>
-                                {sliderState.values[0] > 1 && <FractalzLink onClick={() => {
+                                </FractalzLink>}
+                                {sliderState && sliderState.values[0] > 1 && <FractalzLink onClick={() => {
                                     setBonusModalHidden(false);
                                 }} type={'button'}>
                                     <div className={"border border-white rounded-full px-4 py-1 tracking-widest"}>
