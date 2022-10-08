@@ -112,25 +112,26 @@ const Mint: NextPage = () => {
     )
 
 	const { query } = useRouter();
+
+    // Todo: you may want to hide the api key and the custom url (project refmint unique url)
+	const api_key = "dLht7gP9cXkGaBFdKcgLblkzKlTFSuB86YC9RCvAQnYUcDTgMNFSb9tckplCDlIX";
+	const project_url = "fractalz";
+	const wallet = useAccount().address;
     const [link_id, setLinkId] = useState<any>()
-    const [api_key, setAPIKey] = useState<string>("dLht7gP9cXkGaBFdKcgLblkzKlTFSuB86YC9RCvAQnYUcDTgMNFSb9tckplCDlIX") // Developer API key
-    const [custom_url, setCustomUrl] = useState<string>("fractalz")
     const [email, setEmail] = useState<string>("")
     const [phone, setPhone] = useState<string>("")
-    const [wallet, setWallet] = useState<string>("")
+
+    // These can be displayed to the minter after they've minted.
     const [minterReferralLink, setMinterReferralLink] = useState<string>("")
     const [minterReferralID, setMinterReferralID] = useState<string>("")
-	const addr = useAccount().address;
 
     useEffect(() => {
-		// // This will be null if no link_id is passed
-		if (typeof (query.r) === "string") {
-			setLinkId(query.r);
-		}
-		if (typeof addr === "string") {
-			setWallet(addr);
-		}
-    }, [query.r, addr])
+        // This will be null if no link_id is passed
+        if (typeof (query.r) === "string") {
+            setLinkId(query.r);
+            console.log("Link ID Set: ", query.r);
+        }
+    }, [query.r])
 	
 	const refmintClient = new Refmint({
 		apiKey: api_key,
@@ -139,8 +140,8 @@ const Mint: NextPage = () => {
 	
     const sendRefMintReferral = async () => {
 		try {
-			if (link_id) {
-				const res = await refmintClient.logReferral(custom_url,wallet,link_id,email,phone)
+			if (link_id && wallet) {
+				const res = await refmintClient.logReferral(project_url,wallet,link_id,email,phone)
 				setMinterReferralID(res.referral_id);
 				setMinterReferralLink(res.referral_link);
 			}
