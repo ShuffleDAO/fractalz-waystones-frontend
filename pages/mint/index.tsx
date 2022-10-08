@@ -129,7 +129,6 @@ const Mint: NextPage = () => {
         // This will be null if no link_id is passed
         if (typeof (query.r) === "string") {
             setLinkId(query.r);
-            console.log("Link ID Set: ", query.r);
         }
     }, [query.r])
 	
