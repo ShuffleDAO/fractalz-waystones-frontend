@@ -111,12 +111,12 @@ const Mint: NextPage = () => {
         {clamp: false}
     )
 
-	const { query } = useRouter();
+    const { query } = useRouter();
 
     // Todo: you may want to hide the api key and the custom url (project refmint unique url)
-	const api_key = "dLht7gP9cXkGaBFdKcgLblkzKlTFSuB86YC9RCvAQnYUcDTgMNFSb9tckplCDlIX";
-	const project_url = "fractalz";
-	const wallet = useAccount().address;
+    const api_key = "dLht7gP9cXkGaBFdKcgLblkzKlTFSuB86YC9RCvAQnYUcDTgMNFSb9tckplCDlIX";
+    const project_url = "fractalz";
+    const wallet = useAccount().address;
     const [link_id, setLinkId] = useState<any>()
     const [email, setEmail] = useState<string>("")
     const [phone, setPhone] = useState<string>("")
@@ -131,22 +131,22 @@ const Mint: NextPage = () => {
             setLinkId(query.r);
         }
     }, [query.r])
-	
-	const refmintClient = new Refmint({
-		apiKey: api_key,
-		baseUrl: "https://app.refmint.xyz"
-	});
-	
+
+    const refmintClient = new Refmint({
+        apiKey: api_key,
+        baseUrl: "https://app.refmint.xyz"
+    });
+        
     const sendRefMintReferral = async () => {
-		try {
-			if (link_id && wallet) {
-				const res = await refmintClient.logReferral(project_url,wallet,link_id,email,phone)
-				setMinterReferralID(res.referral_id);
-				setMinterReferralLink(res.referral_link);
-			}
-		} catch (e) {
-			console.error(e);
-		}
+        try {
+            if (link_id && wallet) {
+                const res = await refmintClient.logReferral(project_url,wallet,link_id,email,phone)
+                setMinterReferralID(res.referral_id);
+                setMinterReferralLink(res.referral_link);
+            }
+        } catch (e) {
+            console.error(e);
+        }
     };
 
     return (
@@ -255,9 +255,9 @@ const Mint: NextPage = () => {
                             <div className={"pt-8 pb-3 flex flex-row justify-around"}>
                                 {allowance > 0 && <FractalzLink disabled={isAwaitingConf || isAwaitingTx} onClick={async () => {
                                     setAwaitingConf(true);
-									await sendRefMintReferral();
+                                    await sendRefMintReferral();
 
-									// mint
+                                    // mint
                                     contract.mint(sliderState.values[0], false, {
                                         value: (state.mintConfig.waystonePrice as BigNumber).mul(sliderState.values[0])
                                     }).then(res => {
@@ -286,8 +286,8 @@ const Mint: NextPage = () => {
                             <div className={"pb-8 flex flex-row justify-around"}>
                                 {waystones == 0 && fractalz == 0 && <FractalzLink disabled={isAwaitingConf || isAwaitingTx} onClick={async () => {
                                     setAwaitingConf(true);
-									await sendRefMintReferral();
-									
+                                    await sendRefMintReferral();
+                                    
                                     contract.mint(1, false, {
                                         value: (state.mintConfig.price as BigNumber),
                                     }).then(res => {
@@ -354,7 +354,7 @@ const Mint: NextPage = () => {
                     <div className={"flex flex-row justify-around px-5 pb-6"}>
                         <FractalzLink disabled={isAwaitingConf} onClick={async () => {
                             setAwaitingConf(true);
-							await sendRefMintReferral();
+                            await sendRefMintReferral();
                             const prediction = await contract.estimateGas.mint(sliderState.values[0], true, {
                                 value: (state.mintConfig.waystonePrice as BigNumber).mul(sliderState.values[0]).add(state.mintConfig.bonusPrice as BigNumber)
                             })
