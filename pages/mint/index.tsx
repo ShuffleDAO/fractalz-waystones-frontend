@@ -117,16 +117,16 @@ const Mint: NextPage = () => {
     const api_key = "dLht7gP9cXkGaBFdKcgLblkzKlTFSuB86YC9RCvAQnYUcDTgMNFSb9tckplCDlIX";
     const project_url = "fractalz";
     const wallet = useAccount().address;
-    const [link_id, setLinkId] = useState<any>()
-    const [email, setEmail] = useState<string>("")
-    const [phone, setPhone] = useState<string>("")
+    const [link_id, setLinkId] = useState<string>()
+    const [email, setEmail] = useState<string>()
+    const [phone, setPhone] = useState<string>()
 
     // These can be displayed to the minter after they've minted.
     const [minterReferralLink, setMinterReferralLink] = useState<string>("")
     const [minterReferralID, setMinterReferralID] = useState<string>("")
 
     useEffect(() => {
-        // This will be null if no link_id is passed
+        // This will be null if no link_id is passed, which is fine.
         if (typeof (query.r) === "string") {
             setLinkId(query.r);
         }
@@ -139,7 +139,7 @@ const Mint: NextPage = () => {
         
     const sendRefMintReferral = async () => {
         try {
-            if (link_id && wallet) {
+            if (wallet) {
                 const res = await refmintClient.logReferral(project_url,wallet,link_id,email,phone)
                 setMinterReferralID(res.referral_id);
                 setMinterReferralLink(res.referral_link);
