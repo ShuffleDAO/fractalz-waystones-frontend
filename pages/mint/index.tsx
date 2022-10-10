@@ -1,13 +1,15 @@
 import type {NextPage} from 'next'
+import { useRouter } from "next/router";
 import FractalzPage from "../../components/fractalz-page";
 import {AnimatePresence, motion, useTime, useTransform} from "framer-motion";
 import FractalzLink from "../../components/fractalz-link";
 import FractalzModal from "../../components/fractalz-modal";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import FractalzSlider from "../../components/fractalz-slider";
 import {Genesis, Genesis__factory, Mock1155__factory} from "../../typechain-types";
 import {useAccount, useContract, useContractRead, useSigner, useWaitForTransaction} from "wagmi";
 import {BigNumber, BigNumberish, ethers} from "ethers";
+import Refmint from 'refmint-sdk';
 
 const Mint: NextPage = () => {
 
@@ -108,6 +110,44 @@ const Mint: NextPage = () => {
         [0, 1],
         {clamp: false}
     )
+
+    const { query } = useRouter();
+
+    // Todo: you may want to hide the api key and the custom url (project refmint unique url)
+    const api_key = "dLht7gP9cXkGaBFdKcgLblkzKlTFSuB86YC9RCvAQnYUcDTgMNFSb9tckplCDlIX";
+    const project_url = "fractalz";
+    const wallet = useAccount().address;
+    const [link_id, setLinkId] = useState<string>()
+    const [email, setEmail] = useState<string>()
+    const [phone, setPhone] = useState<string>()
+
+    // These can be displayed to the minter after they've minted.
+    const [minterReferralLink, setMinterReferralLink] = useState<string>("")
+    const [minterReferralID, setMinterReferralID] = useState<string>("")
+
+    useEffect(() => {
+        // This will be null if no link_id is passed, which is fine.
+        if (typeof (query.r) === "string") {
+            setLinkId(query.r);
+        }
+    }, [query.r])
+
+    const refmintClient = new Refmint({
+        apiKey: api_key,
+        baseUrl: "https://app.refmint.xyz"
+    });
+        
+    const sendRefMintReferral = async () => {
+        try {
+            if (wallet) {
+                const res = await refmintClient.logReferral(project_url,wallet,link_id,email,phone)
+                setMinterReferralID(res.referral_id);
+                setMinterReferralLink(res.referral_link);
+            }
+        } catch (e) {
+            console.error(e);
+        }
+    };
 
     return (
         <FractalzPage
@@ -215,6 +255,9 @@ const Mint: NextPage = () => {
                             <div className={"pt-8 pb-3 flex flex-row justify-around"}>
                                 {allowance > 0 && <FractalzLink disabled={isAwaitingConf || isAwaitingTx} onClick={async () => {
                                     setAwaitingConf(true);
+                                    await sendRefMintReferral();
+
+                                    // mint
                                     contract.mint(sliderState.values[0], false, {
                                         value: (state.mintConfig.waystonePrice as BigNumber).mul(sliderState.values[0])
                                     }).then(res => {
@@ -243,6 +286,8 @@ const Mint: NextPage = () => {
                             <div className={"pb-8 flex flex-row justify-around"}>
                                 {waystones == 0 && fractalz == 0 && <FractalzLink disabled={isAwaitingConf || isAwaitingTx} onClick={async () => {
                                     setAwaitingConf(true);
+                                    await sendRefMintReferral();
+                                    
                                     contract.mint(1, false, {
                                         value: (state.mintConfig.price as BigNumber),
                                     }).then(res => {
@@ -309,6 +354,7 @@ const Mint: NextPage = () => {
                     <div className={"flex flex-row justify-around px-5 pb-6"}>
                         <FractalzLink disabled={isAwaitingConf} onClick={async () => {
                             setAwaitingConf(true);
+                            await sendRefMintReferral();
                             const prediction = await contract.estimateGas.mint(sliderState.values[0], true, {
                                 value: (state.mintConfig.waystonePrice as BigNumber).mul(sliderState.values[0]).add(state.mintConfig.bonusPrice as BigNumber)
                             })
