@@ -42,7 +42,7 @@ const Home: NextPage = () => {
                     </div>
                     <div>
                         <FractalzLink
-                            href="/waystones"
+                            href="/mint"
                             type={'action'}
                         >
                             begin journey
